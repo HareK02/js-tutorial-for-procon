@@ -108,6 +108,8 @@ class CanvasComponents {
     this.update = update;
   }
   render() {
+    this.position.x += 5;
+    this.position.y += 10;
     let _X = this.position.x;
     let _Y = this.position.y;
     let phi = this.rotate * (Math.PI / 180);
