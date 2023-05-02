@@ -12,6 +12,10 @@ let oyamaLogo = new CanvasComponents({
 });
 oyamaLogo.update = function () {
   this.rotate += 10;
+  this.position.x +=10;
+  this.position.y += this.motion.y;
+  this.position.y +=10;
+  this.motion.y +=1;
 };
 
 function update() {
