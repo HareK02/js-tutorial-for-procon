@@ -8,10 +8,13 @@ GameArea.refresh();
 let oyamaLogo = new CanvasComponents({
   ctx: MainContext,
   img: "./assets/Oyama_logo.png",
-  position: new Vector2(GameArea.x / 2, GameArea.y / 2),
+  position: new Vector2(GameArea.x / 2, GameArea.y / 3),
 });
 oyamaLogo.update = function () {
-  this.rotate += 10;
+  this.motion.y += 1;
+  this.position.y += this.motion.y;
+  this.position.x += 5;
+  this.rotate += 4
 };
 
 function update() {
