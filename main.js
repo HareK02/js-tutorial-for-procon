@@ -11,9 +11,10 @@ let oyamaLogo = new CanvasComponents({
   position: new Vector2(GameArea.x / 2, GameArea.y / 2),
 });
 oyamaLogo.update = function () {
-  this.rotate += 47;
-  this.position.x +=5
-  this.position.y +=10
+  this.rotate += 45;
+  this.position.x += 25;
+  this.motion.y += 4;
+  this.position.y += this.motion.y;
 };
 
 function update() {
