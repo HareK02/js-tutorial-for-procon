@@ -10,9 +10,13 @@ let oyamaLogo = new CanvasComponents({
   img: "./assets/Oyama_logo.png",
   position: new Vector2(GameArea.x / 2, GameArea.y / 2),
 });
+
 oyamaLogo.update = function () {
   this.rotate += 10;
 };
+
+this.position.x += this.position.x;
+this.motion.y += this.motion.y;
 
 function update() {
   // your code goes here
