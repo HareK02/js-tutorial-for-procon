@@ -102,7 +102,7 @@ class CanvasComponents {
     this.image.src = img;
     this.size = size;
     this.position = position;
-    this.motion = motion;
+    this.motion += 10;
     this.rotate = rotate;
     this.rotation = rotation;
     this.update = update;
