@@ -1,5 +1,8 @@
 let a = 15;
-let b = 20;
-let c = 3
-let ans = a*2*b/c
-console.log(ans)
+let b = 15;
+if (a > b)
+ { console.log ("a is bigger than b"); }
+else if (a < b)
+ { console.log ("a is smaller than b"); }
+else 
+ { console.log ("a is equal to b"); }
