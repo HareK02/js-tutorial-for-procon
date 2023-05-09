@@ -13,6 +13,9 @@ Components[0] = new CanvasComponents({
 });
 Components[0].update = function () {
   this.rotate += 10;
+  this.position.x += 7;
+  let linearfunction = 2.5;
+  this.position.y += 2*linearfunction*linearfunction;
 };
 
 function update() {

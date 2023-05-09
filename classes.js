@@ -102,14 +102,12 @@ class CanvasComponents {
     this.image.src = img;
     this.size = size;
     this.position = position;
-    this.motion += 10;
+    this.motion += motion;
     this.rotate = rotate;
     this.rotation = rotation;
     this.update = update;
   }
   render() {
-    this.position.x += 5;
-    this.position.y += 10;
     let _X = this.position.x;
     let _Y = this.position.y;
     let phi = this.rotate * (Math.PI / 180);
