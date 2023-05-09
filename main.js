@@ -13,20 +13,22 @@ let oyamaLogo = new CanvasComponents({
   position: new Vector2(GameArea.x / 2, 10),
 });
 oyamaLogo.update = function () {
-  this.motion.y += 1;
-  this.rotate += 10;
-  this.position.x += 5;
-  this.position.y += this.motion.y;
+  
+  if(keyInput.IsPressed("ArrowLeft")){
+    this.position.x -= 10;
+  }
+   if(keyInput.IsPressed("ArrowRight")){
+    this.position.x += 10;
+  }
+   if(keyInput.IsPressed("ArrowUp")){
+    this.position.y -= 10;
+  }
+   if(keyInput.IsPressed("ArrowDown")){
+    this.position.y += 10;
+  }
   
   position: new Vector2(GameArea.x / 2, GameArea.y / 4);
 };
-oyamaLogo.update = function () {
-  this.rotate -= 10;
-  this.position.x += 6;
-  this.motion.y += 1;
-  this.position.y += this.motion.y;
-};
-
 function update() {
   // your code goes here
 }
