@@ -13,7 +13,7 @@ let oyamaLogo = new CanvasComponents({
 oyamaLogo.update = function () {
   this.rotate += 10;
   this.position.x+= 5;
-  this.position.y+=10;
+  this.motion.y+=3;
 };
 
 function update() {
