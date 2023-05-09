@@ -7,17 +7,26 @@ GameArea.refresh();
 
 //回り続ける小山高専
 let oyamaLogo = new CanvasComponents({
+
   ctx: MainContext,
   img: "./assets/Oyama_logo.png",
   position: new Vector2(GameArea.x / 2, GameArea.y / 4),
 });
-Components[0].update = function () {
-  this.rotate += 30;
-  this.position.x += 3;
-  this.position.y += this.motion.y;
-  this.position.y += 4;
-  this.motion.y += 1;
-};
+
+oyamaLogo.update = function () {
+  if (keyInput.IsPressed("ArrowLeft")) {
+    this.position.x -= 10;
+  }
+  if (keyInput.IsPressed("ArrowRight")) {
+    this.position.x += 10;
+  }
+  if(keyInput.IsPressed("ArrowUp")) {
+    this.position.y -= 10;
+  }
+  if(keyInput.IsPressed("ArrowDown")) {
+    this.position.y += 10;
+  }
+}
 
 function update() {
   // your code goes here
