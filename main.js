@@ -12,10 +12,38 @@ Components[0] = new CanvasComponents({
   img: "./assets/Oyama_logo.png",
   position: new Vector2(GameArea.x / 2, GameArea.y / 4),
 });
+
 Components[0].update = function () {
-  this.rotate += 10;
-  this.position.x += 2;
-  this.position.y += this.position.y;
+if(keyInput.IsPressed("ArrowRight")){
+  this.position.x += 1
+}
+if(keyInput.IsPressed("ArrowLeft")){
+    this.position.x -= 1
+  }
+if(keyInput.IsPressed("ArrowUp")){
+    this.position.y -= 1
+  }
+if(keyInput.IsPressed("ArrowDown")){
+    this.position.y += 1
+  }
+  if(keyInput.IsPressed("d")){
+    this.position.x += 10
+  }
+  if(keyInput.IsPressed("a")){
+      this.position.x -= 10
+    }
+  if(keyInput.IsPressed("w")){
+      this.position.y -= 10
+    }
+  if(keyInput.IsPressed("s")){
+      this.position.y += 10
+  }
+if(keyInput.IsPressed("m")){
+  this.rotate += 5
+  this.rotate = 1.05 * this.rotate
+}else{
+  this.rotate = 0
+}
 };
 
 function update() {
