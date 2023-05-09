@@ -5,18 +5,17 @@ const GameArea = new CanvasManager(new Vector2(1280, 720), MainCanvas);
 GameArea.refresh();
 
 //回り続ける小山高専
-let oyamaLogo = new CanvasComponents({
+let Components = [];
+Components[0] = new CanvasComponents({
   ctx: MainContext,
   img: "./assets/Oyama_logo.png",
   position: new Vector2(GameArea.x / 2, GameArea.y / 2),
 });
-
-oyamaLogo.update = function () {
+Components[0].update = function () {
   this.rotate += 10;
+  this.position.x += 2;
+  this.position.y += this.position.y;
 };
-
-this.position.x += 5;
-this.position.y += 2;
 
 function update() {
   // your code goes here
@@ -26,7 +25,10 @@ function update() {
 const GameLoop = new GameLoopManager(() => {
   update();
   MainContext.clearRect(0, 0, GameArea.x, GameArea.y);
-  oyamaLogo.render();
-  oyamaLogo.update();
+  for (let i = 0; i < Components.length; i++) {
+    let target = Components[i];
+    target.render();
+    target.update();
+  }
 }, 30);
 GameLoop.start();
