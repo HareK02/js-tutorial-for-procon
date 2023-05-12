@@ -6,20 +6,26 @@ const keyInput = new keyInputManager();
 GameArea.refresh();
 
 //回り続ける小山高専
-let oyamaLogo = new CanvasComponents({
+let compornents = [];
+for (let i = 0; i < 5; i++){
+  compornents[i] = new CanvasComponents({
   ctx: MainContext,
   img: "./assets/Oyama_logo.png",
-  position: new Vector2(GameArea.x / 2, GameArea.y / 4),
-});
-oyamaLogo.update = function () {
-if (keyInput.IsPressed("ArrowLeft"))
- {this.position.x -= 10;}
-if (keyInput.IsPressed("ArrowRight"))
- {this.position.x += 10;}
-if (keyInput.IsPressed("ArrowUp"))
- {this.position.y -= 10;}
-if (keyInput.IsPressed("ArrowDown"))
- {this.position.y += 10;}
+  position: new Vector2(GameArea.x / 2, (GameArea.y / 4) + (100 * i)),
+  update:function(){
+   compornents[i].update = function (){
+    this.rotate += 12;
+   if (keyInput.IsPressed("ArrowLeft"))
+    {this.position.x -= 10;}
+   if (keyInput.IsPressed("ArrowRight"))
+    {this.position.x += 10;}
+   if (keyInput.IsPressed("ArrowUp"))
+    {this.position.y -= 10;}
+   if (keyInput.IsPressed("ArrowDown"))
+    {this.position.y += 10;}
+   }
+  }
+})
 }
 
 function update() {
@@ -30,7 +36,9 @@ function update() {
 const GameLoop = new GameLoopManager(() => {
   update();
   MainContext.clearRect(0, 0, GameArea.x, GameArea.y);
-  oyamaLogo.render();
-  oyamaLogo.update();
+  for (let i = 0; i < compornents.length; i++){
+   compornents[i].render();
+   compornents[i].update();
+  }
 }, 30);
 GameLoop.start();
